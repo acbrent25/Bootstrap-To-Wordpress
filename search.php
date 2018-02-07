@@ -1,28 +1,34 @@
 <?php get_header( ) ?>
+<!-- Page Title
+   ============================================= -->
+<section id="page-title">
+   <div class="container clearfix">
+      <h1><?php _e( 'Search Results for: ', 'udemy' ); ?> <?php echo get_search_query(); ?></h1>
+   </div>
+</section>
+<!-- #page-title end -->
 <!-- Content
    ============================================= -->
 <section id="content">
    <div class="content-wrap">
-      <div class="section header-stick bottommargin-lg clearfix" style="padding: 20px 0;">
-         <div>
-            <div class="container clearfix">
-               <span class="label label-danger bnews-title">Breaking News:</span>
-               <div class="fslider bnews-slider nobottommargin" data-speed="800" data-pause="6000" data-arrows="false" data-pagi="false">
-                  <div class="flexslider">
-                     <div class="slider-wrap">
-                        <div class="slide"><a href="#"><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </strong></a></div>
-                        <div class="slide"><a href="#"><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </strong></a></div>
-                        <div class="slide"><a href="#"><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </strong></a></div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
       <div class="container clearfix">
          <!-- Post Content
             ============================================= -->
          <div class="postcontent nobottommargin clearfix">
+            <!-- Search Box
+               ============================================= -->
+            <div class="panel panel-default">
+               <div class="panel-heading">
+                  <h3 class="panel-title">
+                     <h1>
+                     <?php _e( 'What are you searhing for today?', 'udemy' ); ?>
+                  </h3>
+               </div>
+               <div class="panel-body">
+                  <?php get_search_form(); ?>
+               </div>
+            </div>
+            <!-- Search Box End -->
             <!-- Posts
                ============================================= -->
             <div id="posts">
