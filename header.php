@@ -8,10 +8,6 @@
 	============================================= -->
 	<?php wp_head(); ?>
 
-	<!-- Document Title
-	============================================= -->
-	<title>Index Template</title>
-
 </head>
 
 <body <?php body_class( 'no-transition stretched' ); ?> class="no-transition stretched">
@@ -30,11 +26,16 @@
 				<!-- Top Links
                 ============================================= -->
 				<div class="top-links">
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="faqs.html">FAQs</a></li>
-						<li><a href="contact.html">Contact</a></li>
-					</ul>
+        <?php 
+        if( has_nav_menu( 'top-bar' )) {
+          wp_nav_menu( array(
+            'theme_location'    => 'top-bar',
+            'container'         => false,
+            'fallback_cb'       => false,
+            'depth'             => 1
+          ));  
+        }
+      ?>
 				</div><!-- .top-links end -->
 
 			</div>
@@ -45,11 +46,21 @@
                 ============================================= -->
 				<div id="top-social">
 					<ul>
-						<li><a href="#" class="si-facebook"><span class="ts-icon"><i class="icon-facebook"></i></span><span class="ts-text">Facebook</span></a></li>
-						<li><a href="#" class="si-twitter"><span class="ts-icon"><i class="icon-twitter"></i></span><span class="ts-text">Twitter</span></a></li>
-						<li><a href="#" class="si-instagram"><span class="ts-icon"><i class="icon-instagram2"></i></span><span class="ts-text">Instagram</span></a></li>
-						<li><a href="tel:+91.11.85412542" class="si-call"><span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text">+91.11.85412542</span></a></li>
-						<li><a href="mailto:info@email.com" class="si-email3"><span class="ts-icon"><i class="icon-email3"></i></span><span class="ts-text">info@email.com</span></a></li>
+            <?php if( get_theme_mod( 'ac_facebook_handle' )) { ?>
+						  <li><a href="https://www.facebook.com/<?php echo get_theme_mod( 'ac_facebook_handle' ); ?>" class="si-facebook"><span class="ts-icon"><i class="icon-facebook"></i></span><span class="ts-text">Facebook</span></a></li>
+            <?php } ?>
+            <?php if( get_theme_mod( 'ac_twitter_handle' )) { ?>
+              <li><a href="http://twitter.com/<?php echo get_theme_mod( 'ac_twitter_handle' ) ?>" target="_blank" class="si-twitter"><span class="ts-icon"><i class="icon-twitter"></i></span><span class="ts-text">Twitter</span></a></li>
+            <?php } ?>
+            <?php if( get_theme_mod( 'ac_instagram_handle' )) { ?>
+              <li><a href="http://instagram.com/<?php echo get_theme_mod( 'ac_instagram_handle' ) ?>" target="_blank" class="si-instagram"><span class="ts-icon"><i class="icon-instagram2"></i></span><span class="ts-text">Instagram</span> </a></li>
+            <?php } ?>
+            <?php if( get_theme_mod( 'ac_phone_number' )) { ?>
+              <li><a href="tel:<?php echo get_theme_mod( 'ac_phone_number' ) ?>" class="si-call"><span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text">732.407.7772</span></a></li>
+            <?php } ?>
+            <?php if( get_theme_mod( 'ac_email' )) { ?>
+              <li><a href="mailto:<?php echo get_theme_mod( 'ac_email' ) ?>" class="si-email3"><span class="ts-icon"><i class="icon-email3"></i></span><span class="ts-text">adamchampagne@gmail.com</span></a></li>
+            <?php } ?>
 					</ul>
 				</div><!-- #top-social end -->
 
@@ -68,11 +79,21 @@
 			<!-- Logo
             ============================================= -->
 			<div id="logo">
-				<a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png">Udemy</a>
+
+      <?php
+      if (has_custom_logo() ) {
+        the_custom_logo();
+      } else { 
+        ?><a href="<?php echo home_url( '/' ) ?>" class="standard-logo"><?php bloginfo( 'name' )?></a>
+      <?php } ?>
+				
 			</div><!-- #logo end -->
 
 			<div class="top-advert">
-				<img src="images/magazine/ad.jpg" alt="Ad">
+        <?php if (function_exists('quads_ad')) {
+          echo quads_ad( array('location' => 'udemy_header') );
+        } ?> 
+
 			</div>
 
 		</div>

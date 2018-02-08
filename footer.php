@@ -15,12 +15,16 @@
 
     <div class="col_half col_last tright">
       <div class="fright clearfix">
-        <a href="#" class="social-icon si-small si-borderless si-facebook">
+        <?php if( get_theme_mod( 'ac_facebook_handle' )) { ?>
+          <a href="https://www.facebook.com/<?php echo get_theme_mod( 'ac_facebook_handle' ); ?>" target="_blank" class="social-icon si-small si-borderless si-facebook">
+        <?php } ?>
           <i class="icon-facebook"></i>
           <i class="icon-facebook"></i>
         </a>
 
-        <a href="#" class="social-icon si-small si-borderless si-twitter">
+        <?php if( get_theme_mod( 'ac_facebook_handle' )) { ?>
+          <a href="https://www.twitter.com/<?php echo get_theme_mod( 'ac_twitter_handle' ); ?>" target="_blank" class="social-icon si-small si-borderless si-twitter">
+        <?php } ?>
           <i class="icon-twitter"></i>
           <i class="icon-twitter"></i>
         </a>
@@ -29,7 +33,15 @@
 
       <div class="clear"></div>
 
-      <i class="icon-envelope2"></i> info@email.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> +91-11-6541-6369
+      <?php if( get_theme_mod( 'ac_email' )) { ?>
+        <i class="icon-envelope2"></i> <a href="mailto:<?php echo get_theme_mod( 'ac_email' ) ?>" class="si-email3"></i></span><span class="ts-text">adamchampagne@gmail.com</span> <span class="middot">&middot;</span></a>
+      <?php } ?>
+      
+      <?php if( get_theme_mod( 'ac_phone_number' )) { ?>
+        <i class="icon-headphones"></i> <a href="tel:<?php echo get_theme_mod( 'ac_phone_number' ) ?>">732.407.7772</span></a>
+      <?php } ?>
+      
+      
     </div>
 
   </div>
