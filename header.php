@@ -119,9 +119,10 @@
             }
           ?>
 
-					<!-- Top Cart
+            <?php if( get_theme_mod( 'ac_header_show_cart' ) == 'yes' ) { ?>
+						<!-- Top Cart
 						============================================= -->
-					<div id="top-cart">
+            <div id="top-cart">
 						<a href="#" id="top-cart-trigger"><i class="icon-shopping-cart"></i><span>5</span></a>
 						<div class="top-cart-content">
 							<div class="top-cart-title">
@@ -154,16 +155,20 @@
 								<button class="button button-3d button-small nomargin fright">View Cart</button>
 							</div>
 						</div>
-					</div><!-- #top-cart end -->
+					  </div><!-- #top-cart end -->					  
+            <?php } ?>
 
+
+          <?php if( get_theme_mod( 'ac_header_show_search' ) == 'yes' ) { ?>
 					<!-- Top Search
                     ============================================= -->
 					<div id="top-search">
 						<a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
-						<form action="search.html" method="get">
-							<input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">
+						<form action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
+							<input type="text" name="s" class="form-control" value="<?php the_search_query(); ?>" placeholder="<?php _e( "Type &amp; Hit Enter..", 'udemy' ) ?>">
 						</form>
 					</div><!-- #top-search end -->
+          <?php } ?>
 
 				</div>
 

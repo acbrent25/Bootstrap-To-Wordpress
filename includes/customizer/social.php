@@ -5,7 +5,8 @@ function ac_social_customizer_section( $wp_customize ) {
   // SECTION
   $wp_customize->add_section( 'ac_social_section', array(
     'title'           => __( 'Udemy Social Settings', 'udemy' ),
-    'priority'        => 30
+    'priority'        => 30,
+    'panel'         => 'udemy',
   ));
 
   // SETTINGS
