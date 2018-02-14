@@ -1,4 +1,5 @@
 <?php get_header( ) ?>
+
 <!-- Content
    ============================================= -->
 <section id="content">
@@ -7,10 +8,7 @@
          <!-- Post Content
             ============================================= -->
          <div class="postcontent nobottommargin clearfix">
-            <div class="single-post nobottommargin">
-               <!-- Single Post
-                  ============================================= -->
-               <div class="entry clearfix">
+
                   <?php
                      if( have_posts() ) {
                        while( have_posts()) {
@@ -18,6 +16,10 @@
                          $author_ID    = get_the_author_meta( 'ID' );
                          $author_url   = get_author_posts_url( $author_ID );
                   ?>
+            <div id="post-<?php the_ID(); ?>" <?php post_class( 'single-post nobottommargin' ); ?>>
+               <!-- Single Post
+                  ============================================= -->
+               <div class="entry clearfix">
                   <!-- Entry Title
                      ============================================= -->
                   <div class="entry-title">

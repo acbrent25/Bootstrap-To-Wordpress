@@ -26,6 +26,14 @@ function ac_misc_customizer_section( $wp_customize ) {
     'default'       =>  0,
   ));
 
+  $wp_customize->add_setting('ac_show_header_popular_post_widget', array(
+    'default'       =>  'false',
+  ));
+
+  $wp_customize->add_setting('ac_popular_post_title', array(
+    'default'       =>  'Breaking News',
+  ));
+
   // SECTION
   $wp_customize->add_section('ac_misc_section', array(
     'title'         =>  __( 'Misc settings', 'udemy'),
@@ -101,6 +109,33 @@ function ac_misc_customizer_section( $wp_customize ) {
 
             )
       ));
+
+      $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'ac_show_header_popular_post_input',
+            array(
+                'label'          => __( 'Show Popular Posts', 'udemy' ),
+                'section'        => 'ac_misc_section',
+                'settings'       => 'ac_show_header_popular_post_widget',
+                'type'           => 'checkbox',
+                'choices'        => array(
+                  'yes'          => __( 'Yes', 'udemy' )
+                )
+            )
+        ));
+
+        $wp_customize->add_control(
+          new WP_Customize_Control(
+              $wp_customize,
+              'ac_popular_post_widget_title_input',
+              array(
+                  'label'          => __( 'Popular Post Title', 'udemy' ),
+                  'section'        => 'ac_misc_section',
+                  'settings'       => 'ac_popular_post_title',
+              )
+          ));
+  
 
 
 
